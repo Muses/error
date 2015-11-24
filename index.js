@@ -94,6 +94,10 @@ MuError.RequestUriTooLong = ClientError.extend('RequestUriTooLong', 'Request URI
 MuError.UnsupportedMediaType = ClientError.extend('UnsupportedMediaType', 'Unsupported Media Type', 415);
 MuError.RequestedRangeNotSatisfiable = ClientError.extend('RequestedRangeNotSatisfiable', 'Requested Range Not Satisfiable', 416);
 MuError.ExpectationFailed = ClientError.extend('ExpectationFailed', 'Expectation Failed', 417);
+MuError.UnprocessableEntity = ClientError.extend('UnprocessableEntity', 'Unprocessable Entity', 422);
+MuError.PreconditionRequired = ClientError.extend('PreconditionRequired', 'Precondition Required', 428);
+MuError.TooManyRequests = ClientError.extend('TooManyRequests', 'Too Many Requests', 429);
+MuError.RequestHeaderFieldsTooLarge = ClientError.extend('RequestHeaderFieldsTooLarge', 'Request Header Fields Too Large', 431);
 
 // HTTP server errors.
 var ServerError = MuError.ServerError = MuError.extend('ServerError');
