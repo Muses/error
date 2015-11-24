@@ -1,7 +1,7 @@
 {
   "name": "muses-error",
   "version": "0.1.0",
-  "description": "Muses Error Module",
+  "description": "Muses Error Package",
   "main": "index.js",
   "scripts": {
     "test": "jasmine"
