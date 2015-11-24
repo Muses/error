@@ -1,6 +1,7 @@
+"use strict";
 
 /**
- * Muses Constructor
+ * Muses Error Constructor
  *
  * @param {String} message The error message.
  * @param {Number} [code]  An optional error code.
@@ -14,7 +15,7 @@ function MuError(message, code) {
 
   // Initialize error.
   Error.call(this);
-  Error.captureStackTrace && Error.captureStackTrace(this);
+  Error.captureStackTrace(this);
 
   // Set error properties.
   this.name = 'MuError';
@@ -33,7 +34,7 @@ MuError.prototype.constructor = Error;
  */
 MuError.prototype.toString = function() {
   return this.name + ' (' + this.code + '): ' + this.message;
-}
+};
 
 /**
  * Create a new error type using this as the parent type.
@@ -56,9 +57,9 @@ MuError.extend = function(name, defaultMessage, defaultCode)
 
     // Initialize error.
     MuError.call(this, message || defaultMessage, code || defaultCode);
-    Error.captureStackTrace && Error.captureStackTrace(this, arguments.callee);
+    Error.captureStackTrace(this);
     this.name = name;
-  }
+  };
 
   // Extend MuError.
   SubConstructor.prototype = Object.create(this.prototype);
@@ -68,13 +69,13 @@ MuError.extend = function(name, defaultMessage, defaultCode)
   SubConstructor.extend = this.extend;
 
   return SubConstructor;
-}
+};
 
 // Alias.
 MuError.Error = MuError;
 
 // HTTP client errors.
-MuError.ClientError = ClientError = MuError.extend('ClientError');
+var ClientError = MuError.ClientError = MuError.extend('ClientError');
 MuError.BadRequest = ClientError.extend('BadRequest', 'Bad Request', 400);
 MuError.Unauthorized = ClientError.extend('Unauthorized', 'Unauthorized', 401);
 MuError.PaymentRequired = ClientError.extend('PaymentRequired', 'Payment Required', 402);
@@ -95,7 +96,7 @@ MuError.RequestedRangeNotSatisfiable = ClientError.extend('RequestedRangeNotSati
 MuError.ExpectationFailed = ClientError.extend('ExpectationFailed', 'Expectation Failed', 417);
 
 // HTTP server errors.
-MuError.ServerError = ServerError = MuError.extend('ServerError');
+var ServerError = MuError.ServerError = MuError.extend('ServerError');
 MuError.InternalServerError = ServerError.extend('InternalServerError', 'Internal Server Error', 500);
 MuError.NotImplemented = ServerError.extend('NotImplemented', 'Not Implemented', 501);
 MuError.BadGateway = ServerError.extend('BadGateway', 'BadGateway', 502);
