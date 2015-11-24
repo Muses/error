@@ -1,14 +1,14 @@
 {
   "name": "muses-error",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Muses Error Package",
   "main": "index.js",
   "scripts": {
     "test": "jasmine"
   },
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/Muses/error.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Muses/error.git"
   },
   "keywords": [
     "Muses",
