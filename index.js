@@ -71,42 +71,5 @@ MuError.extend = function(name, defaultMessage, defaultCode)
   return SubConstructor;
 };
 
-// Alias.
-MuError.Error = MuError;
-
-// HTTP client errors.
-var ClientError = MuError.ClientError = MuError.extend('ClientError');
-MuError.BadRequest = ClientError.extend('BadRequest', 'Bad Request', 400);
-MuError.Unauthorized = ClientError.extend('Unauthorized', 'Unauthorized', 401);
-MuError.PaymentRequired = ClientError.extend('PaymentRequired', 'Payment Required', 402);
-MuError.Forbidden = ClientError.extend('Forbidden', 'Forbidden', 403);
-MuError.NotFound = ClientError.extend('NotFound', 'Not Found', 404);
-MuError.MethodNotAllowed = ClientError.extend('MethodNotAllowed', 'Not Acceptable', 405);
-MuError.NotAcceptable = ClientError.extend('NotAcceptable', 'Not Acceptable', 406);
-MuError.ProxyAuthenticationRequired = ClientError.extend('ProxyAuthenticationRequired', 'Proxy Authentication Required', 407);
-MuError.RequestTimeout = ClientError.extend('RequestTimeout', 'Request Timeout', 408);
-MuError.Conflict = ClientError.extend('Conflict', 'Conflict', 409);
-MuError.Gone = ClientError.extend('Gone', 'Gone', 410);
-MuError.LengthRequired = ClientError.extend('LengthRequired', 'Length Required', 411);
-MuError.PreconditionFailed = ClientError.extend('PreconditionFailed', 'Precondition Failed', 412);
-MuError.RequestEntityTooLarge = ClientError.extend('RequestEntityTooLarge', 'Request Entity Too Large', 413);
-MuError.RequestUriTooLong = ClientError.extend('RequestUriTooLong', 'Request URI Too Long', 414);
-MuError.UnsupportedMediaType = ClientError.extend('UnsupportedMediaType', 'Unsupported Media Type', 415);
-MuError.RequestedRangeNotSatisfiable = ClientError.extend('RequestedRangeNotSatisfiable', 'Requested Range Not Satisfiable', 416);
-MuError.ExpectationFailed = ClientError.extend('ExpectationFailed', 'Expectation Failed', 417);
-MuError.UnprocessableEntity = ClientError.extend('UnprocessableEntity', 'Unprocessable Entity', 422);
-MuError.PreconditionRequired = ClientError.extend('PreconditionRequired', 'Precondition Required', 428);
-MuError.TooManyRequests = ClientError.extend('TooManyRequests', 'Too Many Requests', 429);
-MuError.RequestHeaderFieldsTooLarge = ClientError.extend('RequestHeaderFieldsTooLarge', 'Request Header Fields Too Large', 431);
-
-// HTTP server errors.
-var ServerError = MuError.ServerError = MuError.extend('ServerError');
-MuError.InternalServerError = ServerError.extend('InternalServerError', 'Internal Server Error', 500);
-MuError.NotImplemented = ServerError.extend('NotImplemented', 'Not Implemented', 501);
-MuError.BadGateway = ServerError.extend('BadGateway', 'BadGateway', 502);
-MuError.ServiceUnavailable = ServerError.extend('ServiceUnavailable', 'Service Unavailable', 503);
-MuError.GatewayTimeout = ServerError.extend('GatewayTimeout', 'Gateway Timeout', 504);
-MuError.HttpVersionNotSupported = ServerError.extend('HttpVersionNotSupported', 'HttpVersionNotSupported', 505);
-
 // Exports.
 module.exports = MuError;
